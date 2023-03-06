@@ -9,7 +9,7 @@ if __name__ == "__main__":
     print(client.isConnected())
 
     time.sleep(4)
-    client.setAtPosition(-346, -700, -100)
+    client.setAtPosition(-300, -200, -100)
 
     # time.sleep(3)
     # client.flyToPosition(-346, -420, -100, 10)
