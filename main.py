@@ -1,6 +1,7 @@
 from DroneClient import DroneClient
 import time
 import airsim.utils
+from Controller import DroneController
 
 if __name__ == "__main__":
     client = DroneClient()
@@ -9,13 +10,20 @@ if __name__ == "__main__":
     print(client.isConnected())
 
     time.sleep(4)
+    #set starting position
     client.setAtPosition(-300, -200, -100)
 
-    # time.sleep(3)
+    controller = DroneController(client)
+
+
+    time.sleep(3)
+    target_pos = (-500, -900, -100)
+    controller.navigateTangentBug(target_pos)
+
     # client.flyToPosition(-346, -420, -100, 10)
 
-    while True:
-        print(client.getLidarData())
-        time.sleep(1)
-
-        
+    # while True:
+    #     print(type(client.getLidarData().points))
+    #     print(list(client.getLidarData().points))
+    #     # print(client.getPose())
+    #     time.sleep(1)
